@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Luxury Cabs | Elite Chauffeur & Luxury Car Rental Services</title>
+  <meta name="description" content="Experience unparalleled elegance with Luxury Cabs. Chauffeur-driven Rolls-Royce, Mercedes Maybach, BMW 7-Series & Range Rover for Airport VIP transfers, corporate travel & weddings.">
+  <meta name="keywords" content="Luxury Cabs, luxury car rental, chauffeur service, VIP airport transfer, Rolls Royce rental, Mercedes S Class, luxury taxi booking">
+  <meta name="author" content="Luxury Cabs">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Luxury Cabs - First Class Chauffeur & Luxury Car Rentals">
+  <meta property="og:description" content="Travel in supreme luxury. Reserve Mercedes Maybach, Rolls-Royce, and Range Rover with vetted master chauffeurs.">
+  <meta property="og:image" content="assets/images/hero_banner.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. NAVIGATION BAR
+       ========================================================================== -->
+  <header class="luxury-navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo-wrap" aria-label="Luxury Cabs Home">
+        <img src="assets/images/logo.png" alt="Luxury Cabs Brand Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active-nav">Home</a>
+        <a href="#fleet" class="nav-link">Luxury Fleet</a>
+        <a href="#services" class="nav-link">VIP Services</a>
+        <a href="#calculator" class="nav-link">Fare Estimator</a>
+        <a href="#tracking" class="nav-link">Track Ride</a>
+        <a href="#why-us" class="nav-link">Why Us</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="currency-select-wrap">
+          <select class="currency-selector" id="nav-currency-select" aria-label="Select Currency">
+            <option value="INR">₹ INR</option>
+            <option value="USD">$ USD</option>
+            <option value="AED">د.إ AED</option>
+          </select>
+        </div>
+
+        <a href="tel:+919136397629" class="btn btn-gold-outline" style="padding: 0.55rem 1.1rem; font-size: 0.88rem;">
+          <i class="icon-phone"></i> <span>24/7 VIP Line</span>
+        </a>
+
+        <button class="btn btn-gold" onclick="bookingEngine.openModal()" id="nav-book-btn">
+          <span>Book Now</span>
+          <i class="icon-sparkle"></i>
+        </button>
+
+        <button class="mobile-menu-toggle" aria-label="Open Navigation Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-nav-header">
+      <img src="assets/images/logo.png" alt="Luxury Cabs" style="height: 38px;">
+      <button class="mobile-nav-close" aria-label="Close Menu">✕</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#fleet" class="mobile-nav-link">Luxury Fleet</a>
+      <a href="#services" class="mobile-nav-link">VIP Services</a>
+      <a href="#calculator" class="mobile-nav-link">Fare Estimator</a>
+      <a href="#tracking" class="mobile-nav-link">Track Ride</a>
+      <a href="#why-us" class="mobile-nav-link">Why Choose Us</a>
+      <a href="#reviews" class="mobile-nav-link">Testimonials</a>
+      <a href="#faq" class="mobile-nav-link">FAQ</a>
+    </div>
+    <div style="margin-top: auto; padding-top: 2rem;">
+      <button class="btn btn-gold w-full" onclick="bookingEngine.openModal()">
+        <span>Book Luxury Cab</span>
+        <i class="icon-sparkle"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. HERO SECTION
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <canvas id="hero-particles-canvas"></canvas>
+    <div class="hero-backdrop-overlay"></div>
+    <div class="container">
+      <div class="hero-content-grid">
+        <!-- Hero Left Column: Copy & Tagline -->
+        <div class="hero-text-col reveal-slide-left revealed">
+          <div class="hero-vip-badge">
+            <i class="icon-sparkle"></i> World-Class Chauffeur & Limousine Service
+          </div>
+          <h1 class="hero-main-title">
+            Travel in <span class="gold-gradient-text">Pure Elegance</span>, Arrive in Grand Style
+          </h1>
+          <p class="hero-description">
+            Experience the pinnacle of luxury transportation with our presidential fleet of Mercedes-Maybach, Rolls-Royce, BMW 7-Series, and Range Rover. Vetted master chauffeurs at your service 24/7.
+          </p>
+
+          <div class="hero-highlights-row">
+            <div class="highlight-chip">
+              <i class="icon-shield-check"></i> 100% Punctual Guarantee
+            </div>
+            <div class="highlight-chip">
+              <i class="icon-award"></i> Uniformed Master Chauffeurs
+            </div>
+            <div class="highlight-chip">
+              <i class="icon-wifi"></i> 5G Wi-Fi & Refreshments
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Fast Booking Card -->
+        <div class="hero-booking-card reveal-slide-right revealed">
+          <div class="hero-card-header">
+            <h3 class="hero-card-title">Reserve Your <span class="gold-gradient-text">VIP Ride</span></h3>
+            <p class="hero-card-subtitle">Instant booking with bespoke chauffeur selection</p>
+          </div>
+
+          <!-- Trip Type Selector -->
+          <div class="hero-tabs-nav">
+            <button type="button" class="hero-tab-btn active" data-type="one-way">One-Way</button>
+            <button type="button" class="hero-tab-btn" data-type="round-trip">Round Trip</button>
+            <button type="button" class="hero-tab-btn" data-type="airport">Airport VIP</button>
+            <button type="button" class="hero-tab-btn" data-type="hourly">Hourly Charter</button>
+          </div>
+
+          <form id="hero-booking-form">
+            <div class="booking-form-grid">
+              <!-- Pickup Location -->
+              <div class="input-field-wrap form-group-full">
+                <label class="input-label" for="hero-pickup">Pickup Location</label>
+                <i class="icon-map-pin input-icon"></i>
+                <input type="text" id="hero-pickup" class="luxury-input" placeholder="Airport, Hotel, Residence, or Landmark..." required>
+              </div>
+
+              <!-- Destination / Drop (Hidden for hourly) -->
+              <div class="input-field-wrap form-group-full" id="hero-drop-wrap">
+                <label class="input-label" for="hero-drop">Drop Location / Destination</label>
+                <i class="icon-flag input-icon"></i>
+                <input type="text" id="hero-drop" class="luxury-input" placeholder="Destination address, city, or terminal...">
+              </div>
+
+              <!-- Hourly Duration (Shown for hourly) -->
+              <div class="input-field-wrap form-group-full" id="hero-hours-wrap" style="display: none;">
+                <label class="input-label" for="hero-hours">Charter Duration</label>
+                <i class="icon-clock input-icon"></i>
+                <select id="hero-hours" class="luxury-select">
+                  <option value="4">4 Hours (City Business Tour - 40km incl.)</option>
+                  <option value="8" selected>8 Hours (Full Day Executive - 80km incl.)</option>
+                  <option value="12">12 Hours (Grand Outstation / Event - 120km incl.)</option>
+                  <option value="24">24 Hours (Presumed VIP Full Day Standby)</option>
+                </select>
+              </div>
+
+              <!-- Pickup Date -->
+              <div class="input-field-wrap">
+                <label class="input-label" for="hero-date">Pickup Date</label>
+                <i class="icon-calendar input-icon"></i>
+                <input type="date" id="hero-date" class="luxury-input" required>
+              </div>
+
+              <!-- Pickup Time -->
+              <div class="input-field-wrap">
+                <label class="input-label" for="hero-time">Pickup Time</label>
+                <i class="icon-clock input-icon"></i>
+                <input type="time" id="hero-time" class="luxury-input" value="14:00" required>
+              </div>
+
+              <!-- Vehicle Tier Selector -->
+              <div class="input-field-wrap form-group-full">
+                <label class="input-label" for="hero-fleet-tier">Preferred Fleet Category</label>
+                <i class="icon-car input-icon"></i>
+                <select id="hero-fleet-tier" class="luxury-select">
+                  <option value="sedan">Executive Sedans (Mercedes S-Class / BMW 7-Series)</option>
+                  <option value="suv">Luxury SUVs (Range Rover Autobiography)</option>
+                  <option value="royal">Presidential & Royal (Rolls-Royce Ghost / Bentley)</option>
+                  <option value="van">VIP Passenger Lounge (Mercedes V-Class Maybach)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="booking-submit-row">
+              <button type="submit" class="btn btn-gold w-full" id="hero-submit-btn">
+                <span>View Available Cabs & Rates</span>
+                <i class="icon-arrow-right"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. KEY STATS SECTION
+       ========================================================================== -->
+  <section class="luxury-stats-section">
+    <div class="container">
+      <div class="stats-glass-bar reveal-on-scroll">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="icon-car"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-number" data-target="50" data-suffix="+">50+</h3>
+            <p>Pristine Luxury Fleet</p>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon"><i class="icon-award"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-number" data-target="15000" data-suffix="+">15,000+</h3>
+            <p>VIP Rides Completed</p>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon"><i class="icon-shield-check"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-number" data-target="100" data-suffix="%">100%</h3>
+            <p>On-Time Chauffeurs</p>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon"><i class="icon-star"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-number" data-target="49" data-suffix="/5">4.9/5</h3>
+            <p>Customer VIP Rating</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. FLEET SHOWCASE
+       ========================================================================== -->
+  <section class="fleet-section" id="fleet">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-badge"><i class="icon-sparkle"></i> The Royal Garage</span>
+        <h2 class="section-title">Our Exclusive <span class="gold-gradient-text">Luxury Fleet</span></h2>
+        <p class="section-subtitle">
+          Every vehicle is meticulously maintained in pristine condition, sanitized before every assignment, and driven by background-verified master chauffeurs.
+        </p>
+      </div>
+
+      <!-- Fleet Category Filter Tabs -->
+      <div class="fleet-filter-nav reveal-on-scroll">
+        <button class="fleet-tab-btn active" data-category="all">All Vehicles</button>
+        <button class="fleet-tab-btn" data-category="sedan">Executive Sedans</button>
+        <button class="fleet-tab-btn" data-category="suv">Luxury SUVs</button>
+        <button class="fleet-tab-btn" data-category="royal">Royal & Presidential</button>
+        <button class="fleet-tab-btn" data-category="van">VIP Passenger Vans</button>
+      </div>
+
+      <!-- Fleet Cards Container (Rendered dynamically by JS) -->
+      <div class="fleet-grid" id="fleet-grid-container">
+        <!-- Rendered by fleet-data.js & app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. VIP SERVICES SECTION
+       ========================================================================== -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-badge"><i class="icon-award"></i> Bespoke Hospitality</span>
+        <h2 class="section-title">Premier <span class="gold-gradient-text">Chauffeur Services</span></h2>
+        <p class="section-subtitle">
+          Tailored transportation experiences designed to meet the exacting standards of corporate leaders, diplomats, and discerning travelers.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: Airport VIP -->
+        <div class="service-card reveal-on-scroll stagger-1">
+          <div class="service-icon-wrap">
+            <i class="icon-flag"></i>
+          </div>
+          <h3>Airport VIP Transfers</h3>
+          <p>Flight monitoring in real-time, terminal meet & greet with personalized digital nameboard, and complimentary luggage handling.</p>
+          <ul class="service-features-list">
+            <li><i class="icon-check"></i> Flight tracking & delay adjustment</li>
+            <li><i class="icon-check"></i> 60 min complimentary wait time</li>
+            <li><i class="icon-check"></i> Curbside luggage assistance</li>
+          </ul>
+        </div>
+
+        <!-- Service 2: Corporate Chauffeur -->
+        <div class="service-card reveal-on-scroll stagger-2">
+          <div class="service-icon-wrap">
+            <i class="icon-briefcase"></i>
+          </div>
+          <h3>Corporate Executive Travel</h3>
+          <p>Discreet, punctual, and confidential chauffeur services for business executives, delegates, financial roadshows, and board meetings.</p>
+          <ul class="service-features-list">
+            <li><i class="icon-check"></i> High-speed 5G Wi-Fi & laptop trays</li>
+            <li><i class="icon-check"></i> NDA-signed professional drivers</li>
+            <li><i class="icon-check"></i> Corporate billing & GST invoices</li>
+          </ul>
+        </div>
+
+        <!-- Service 3: Weddings & Red Carpet -->
+        <div class="service-card reveal-on-scroll stagger-3">
+          <div class="service-icon-wrap">
+            <i class="icon-sparkle"></i>
+          </div>
+          <h3>Weddings & Red Carpet Events</h3>
+          <p>Make a grand entrance with decorated Rolls-Royce and Bentley limousines accompanied by suited white-glove chauffeurs.</p>
+          <ul class="service-features-list">
+            <li><i class="icon-check"></i> Customized floral decorations</li>
+            <li><i class="icon-check"></i> Red carpet arrival assistance</li>
+            <li><i class="icon-check"></i> Champagne & photo opportunity setup</li>
+          </ul>
+        </div>
+
+        <!-- Service 4: Hourly & Intercity Charter -->
+        <div class="service-card reveal-on-scroll stagger-4">
+          <div class="service-icon-wrap">
+            <i class="icon-clock"></i>
+          </div>
+          <h3>Hourly & Intercity Charter</h3>
+          <p>Dedicated luxury vehicle and chauffeur at your full disposal for city shopping, diplomatic visits, or seamless outstation journeys.</p>
+          <ul class="service-features-list">
+            <li><i class="icon-check"></i> Flexible stops on demand</li>
+            <li><i class="icon-check"></i> Experienced highway route experts</li>
+            <li><i class="icon-check"></i> All tolls & state permits handled</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. LIVE FARE CALCULATOR SECTION
+       ========================================================================== -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-badge"><i class="icon-gauge"></i> Instant Transparency</span>
+        <h2 class="section-title">Live <span class="gold-gradient-text">Fare Estimator</span></h2>
+        <p class="section-subtitle">
+          Calculate your estimated journey price instantly with zero hidden surcharges. Use promo codes for exclusive discounts.
+        </p>
+      </div>
+
+      <div class="calculator-box reveal-on-scroll">
+        <!-- Controls Column -->
+        <div class="calc-controls-col">
+          <div class="input-field-wrap" style="margin-bottom: 1.5rem;">
+            <label class="input-label" for="calc-car">Select Luxury Vehicle</label>
+            <select id="calc-car" class="luxury-select">
+              <!-- Populated by JS -->
+            </select>
+          </div>
+
+          <div class="input-field-wrap" style="margin-bottom: 1.5rem;">
+            <label class="input-label" for="calc-type">Ride / Service Mode</label>
+            <select id="calc-type" class="luxury-select">
+              <option value="one-way">One-Way City / Airport Drop</option>
+              <option value="round-trip">Round Trip (10% Discount on Per-KM)</option>
+              <option value="airport">Airport VIP Pickup (Tolls & Parking Included)</option>
+              <option value="hourly">Hourly Chauffeur Charter</option>
+            </select>
+          </div>
+
+          <div class="input-field-wrap" id="calc-hours-group" style="display: none; margin-bottom: 1.5rem;">
+            <label class="input-label" for="calc-hours">Charter Hours</label>
+            <select id="calc-hours" class="luxury-select">
+              <option value="4">4 Hours</option>
+              <option value="8" selected>8 Hours</option>
+              <option value="12">12 Hours</option>
+            </select>
+          </div>
+
+          <div class="input-field-wrap" style="margin-bottom: 1.5rem;">
+            <label class="input-label">Estimated Journey Distance (KM)</label>
+            <div class="calc-slider-wrap">
+              <input type="range" id="calc-distance-range" class="luxury-slider" min="5" max="400" value="25" step="1" aria-label="Distance Slider">
+              <input type="number" id="calc-distance-number" class="calc-km-input" value="25" min="5" max="400" aria-label="Distance Number Input">
+            </div>
+          </div>
+
+          <div class="input-field-wrap">
+            <label class="input-label" for="calc-promo-input">VIP Promo Code (Try: <code>LUXURYFIRST</code>)</label>
+            <div class="promo-input-group">
+              <input type="text" id="calc-promo-input" class="luxury-input" placeholder="Enter coupon code..." style="padding-left: 1rem;">
+              <button type="button" id="calc-apply-promo" class="btn btn-gold-outline" style="white-space: nowrap;">Apply</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Receipt & Total Column -->
+        <div class="calc-receipt-col">
+          <div class="calc-receipt-card">
+            <div class="calc-receipt-header">
+              <h4>Estimated Fare Breakdown</h4>
+              <small style="color: var(--text-muted);">Transparent pricing • Guaranteed quote</small>
+            </div>
+
+            <div class="receipt-row">
+              <span>Distance Estimated</span>
+              <strong id="calc-display-dist">25 KM</strong>
+            </div>
+
+            <div class="receipt-row">
+              <span>Base Fare</span>
+              <span id="calc-display-base">₹3,500</span>
+            </div>
+
+            <div class="receipt-row">
+              <span>Distance & Chauffeur Charges</span>
+              <span id="calc-display-perkm">₹2,375</span>
+            </div>
+
+            <div class="receipt-row">
+              <span>VIP Surcharges & Taxes (5%)</span>
+              <span id="calc-display-tax">₹293</span>
+            </div>
+
+            <div class="receipt-row discount-row" id="calc-discount-row" style="display: none;">
+              <span>Promo Discount Applied</span>
+              <span id="calc-display-discount">-₹0</span>
+            </div>
+
+            <div class="receipt-row total-row">
+              <span>Total Estimated Fare</span>
+              <span id="calc-display-grand">₹6,168</span>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <button class="btn btn-gold w-full" id="calc-proceed-booking">
+                <span>Book With This Estimate</span>
+                <i class="icon-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. LIVE BOOKING TRACKER
+       ========================================================================== -->
+  <section class="tracking-section" id="tracking">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-badge"><i class="icon-map-pin"></i> Live Ride Radar</span>
+        <h2 class="section-title">Track Your <span class="gold-gradient-text">Luxury Cab</span></h2>
+        <p class="section-subtitle">
+          Enter your Booking Reference ID to check live vehicle dispatch, driver location, and journey timeline.
+        </p>
+      </div>
+
+      <div class="tracker-container reveal-on-scroll">
+        <form class="tracker-search-bar" id="track-ride-form">
+          <i class="icon-search" style="color: var(--gold-primary);"></i>
+          <input type="text" id="track-booking-id" placeholder="Enter Booking ID (e.g. LC-VIP-78921)..." required>
+          <button type="submit" class="btn btn-gold" style="border-radius: var(--radius-pill); padding: 0.75rem 1.6rem;">
+            <span>Track Ride</span>
+          </button>
+        </form>
+
+        <!-- Search Result Box (Rendered dynamically) -->
+        <div id="track-result-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. WHY CHOOSE LUXURY CABS
+       ========================================================================== -->
+  <section class="services-section" id="why-us" style="background: rgba(14, 19, 31, 0.45);">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-badge"><i class="icon-shield"></i> The Gold Standard</span>
+        <h2 class="section-title">Why Travel With <span class="gold-gradient-text">Luxury Cabs</span></h2>
+        <p class="section-subtitle">
+          We redefine premium travel by blending extraordinary automobiles with flawless personalized service.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal-on-scroll stagger-1">
+          <div class="service-icon-wrap"><i class="icon-award"></i></div>
+          <h3>Elite Master Chauffeurs</h3>
+          <p>Every chauffeur is formally trained in executive etiquette, bilingual, background-checked, and wears an immaculate uniform.</p>
+        </div>
+
+        <div class="service-card reveal-on-scroll stagger-2">
+          <div class="service-icon-wrap"><i class="icon-shield-check"></i></div>
+          <h3>Pristine Sanitized Fleet</h3>
+          <p>Our vehicles undergo a 24-point pre-trip inspection, interior steam sterilization, and air purification prior to every dispatch.</p>
+        </div>
+
+        <div class="service-card reveal-on-scroll stagger-3">
+          <div class="service-icon-wrap"><i class="icon-phone"></i></div>
+          <h3>24/7 Dedicated Concierge</h3>
+          <p>Direct priority WhatsApp and hotline access to your personal travel manager for flight changes, route updates, or special requests.</p>
+        </div>
+
+        <div class="service-card reveal-on-scroll stagger-4">
+          <div class="service-icon-wrap"><i class="icon-sparkle"></i></div>
+          <h3>VIP Onboard Amenities</h3>
+          <p>Complimentary high-speed 5G Wi-Fi, crystal glassware, chilled premium water, device chargers, and daily fresh publications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. TESTIMONIALS
+       ========================================================================== -->
+  <section class="testimonials-section" id="reviews">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-badge"><i class="icon-star"></i> VIP Client Words</span>
+        <h2 class="section-title">Loved by <span class="gold-gradient-text">Industry Leaders</span></h2>
+        <p class="section-subtitle">Read what our esteemed clients and corporate partners have to say about our service.</p>
+      </div>
+
+      <div class="testimonials-slider-wrap reveal-on-scroll">
+        <div class="testimonials-track">
+          <!-- Card 1 -->
+          <div class="testimonial-card">
+            <div class="test-inner-box">
+              <div class="test-stars">★★★★★</div>
+              <p class="test-quote">
+                "Luxury Cabs provided outstanding service for our international board summit. The Mercedes S-Class fleet arrived ahead of schedule, chauffeurs were impeccably dressed, and the Wi-Fi was blazing fast."
+              </p>
+              <div class="test-client-row">
+                <div class="test-client-avatar">RK</div>
+                <div>
+                  <h4 class="test-client-name">Rajiv Kapoor</h4>
+                  <p class="test-client-role">Managing Director, Global FinTech</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testimonial-card">
+            <div class="test-inner-box">
+              <div class="test-stars">★★★★★</div>
+              <p class="test-quote">
+                "We booked the Rolls-Royce Ghost and Bentley for our daughter's royal wedding. The vehicles were gleaming like new mirrors and the chauffeur's royal protocol made the day unforgettable!"
+              </p>
+              <div class="test-client-row">
+                <div class="test-client-avatar">AS</div>
+                <div>
+                  <h4 class="test-client-name">Ananya Singhania</h4>
+                  <p class="test-client-role">Private Client, Mumbai</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testimonial-card">
+            <div class="test-inner-box">
+              <div class="test-stars">★★★★★</div>
+              <p class="test-quote">
+                "Airport transfers are seamless. My flight was delayed by 45 minutes, yet my chauffeur Vikram was patiently waiting inside the terminal with a digital nameboard. True 5-star service."
+              </p>
+              <div class="test-client-row">
+                <div class="test-client-avatar">MD</div>
+                <div>
+                  <h4 class="test-client-name">Marcus Davies</h4>
+                  <p class="test-client-role">VP International Operations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-arrow-btn" id="test-prev" aria-label="Previous Review">‹</button>
+          <button class="slider-arrow-btn" id="test-next" aria-label="Next Review">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. FAQ SECTION
+       ========================================================================== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-badge"><i class="icon-help"></i> Clear Answers</span>
+        <h2 class="section-title">Frequently Asked <span class="gold-gradient-text">Questions</span></h2>
+        <p class="section-subtitle">Everything you need to know about our luxury chauffeur and booking policies.</p>
+      </div>
+
+      <div class="faq-accordion-wrap reveal-on-scroll">
+        <div class="faq-item open">
+          <div class="faq-question">
+            <h4>How far in advance should I book my luxury cab?</h4>
+            <span class="faq-toggle-icon">▾</span>
+          </div>
+          <div class="faq-answer">
+            For airport transfers and executive sedans, we recommend booking at least 2 to 4 hours in advance. For ultra-luxury cars like Rolls-Royce and Bentley or wedding convoys, booking 24–48 hours in advance ensures guaranteed vehicle availability and custom embellishments.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>What is included in the fare quote?</h4>
+            <span class="faq-toggle-icon">▾</span>
+          </div>
+          <div class="faq-answer">
+            Our quotes are fully all-inclusive: vehicle hire, uniformed professional chauffeur, fuel, road tolls, state taxes, parking charges, high-speed 5G Wi-Fi, and bottled mineral water. Zero hidden surcharges.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>How does airport flight tracking work?</h4>
+            <span class="faq-toggle-icon">▾</span>
+          </div>
+          <div class="faq-answer">
+            When you provide your flight number during booking, our dispatch team tracks your flight status live. If your flight is delayed or lands early, your chauffeur automatically adjusts pickup time with 60 minutes of complimentary wait time after landing.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>Can I make custom stops or hire for multiple days?</h4>
+            <span class="faq-toggle-icon">▾</span>
+          </div>
+          <div class="faq-answer">
+            Yes! You can choose our "Hourly Charter" option or request bespoke multi-day outstation itineraries. Our concierge team can arrange customized travel schedules with dedicated chauffeurs.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. MULTI-STEP BOOKING MODAL WIZARD
+       ========================================================================== -->
+  <div class="modal-overlay" id="booking-modal-overlay">
+    <div class="booking-modal-container">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-brand-wrap">
+          <img src="assets/images/logo.png" alt="Luxury Cabs">
+          <h3>LUXURY CABS <span class="gold-gradient-text">VIP RESERVATION</span></h3>
+        </div>
+        <button class="close-modal-btn close-booking-modal" aria-label="Close Reservation Modal">✕</button>
+      </div>
+
+      <!-- Wizard Step Indicators -->
+      <div class="wizard-steps-bar">
+        <div class="wizard-step-item active" data-step="1">
+          <span class="step-num">1</span>
+          <span>Trip Details</span>
+        </div>
+        <div class="wizard-step-item" data-step="2">
+          <span class="step-num">2</span>
+          <span>Select Vehicle</span>
+        </div>
+        <div class="wizard-step-item" data-step="3">
+          <span class="step-num">3</span>
+          <span>VIP Add-ons</span>
+        </div>
+        <div class="wizard-step-item" data-step="4">
+          <span class="step-num">4</span>
+          <span>Passenger Info</span>
+        </div>
+        <div class="wizard-step-item" data-step="5">
+          <span class="step-num">5</span>
+          <span>Confirmation</span>
+        </div>
+      </div>
+
+      <!-- Modal Body Layout -->
+      <div class="modal-body-layout">
+        <!-- Main Form Content -->
+        <div class="modal-main-content">
+          <!-- STEP 1: Trip Info -->
+          <div class="wizard-step-panel active" id="wizard-step-1">
+            <h4 style="margin-bottom: 1.2rem; color: var(--gold-light);">Step 1: Journey & Schedule</h4>
+            
+            <div class="hero-tabs-nav" style="margin-bottom: 1.5rem;">
+              <button type="button" class="modal-trip-btn active hero-tab-btn" data-type="one-way">One-Way</button>
+              <button type="button" class="modal-trip-btn hero-tab-btn" data-type="round-trip">Round Trip</button>
+              <button type="button" class="modal-trip-btn hero-tab-btn" data-type="airport">Airport VIP</button>
+              <button type="button" class="modal-trip-btn hero-tab-btn" data-type="hourly">Hourly Charter</button>
+            </div>
+
+            <div class="booking-form-grid">
+              <div class="input-field-wrap form-group-full">
+                <label class="input-label" for="modal-pickup">Pickup Address / Landmark</label>
+                <i class="icon-map-pin input-icon"></i>
+                <input type="text" id="modal-pickup" class="luxury-input" placeholder="Enter pickup address, hotel or terminal..." required>
+              </div>
+
+              <div class="input-field-wrap form-group-full" id="modal-drop-wrap">
+                <label class="input-label" for="modal-drop">Destination / Drop Address</label>
+                <i class="icon-flag input-icon"></i>
+                <input type="text" id="modal-drop" class="luxury-input" placeholder="Enter destination address...">
+              </div>
+
+              <div class="input-field-wrap form-group-full" id="modal-hours-wrap" style="display: none;">
+                <label class="input-label" for="modal-hours">Charter Duration</label>
+                <i class="icon-clock input-icon"></i>
+                <select id="modal-hours" class="luxury-select">
+                  <option value="4">4 Hours (40 KM Included)</option>
+                  <option value="8" selected>8 Hours (80 KM Included)</option>
+                  <option value="12">12 Hours (120 KM Included)</option>
+                </select>
+              </div>
+
+              <div class="input-field-wrap form-group-full" id="modal-flight-wrap" style="display: none;">
+                <label class="input-label" for="modal-flight">Flight Number (For live flight tracking)</label>
+                <i class="icon-flag input-icon"></i>
+                <input type="text" id="modal-flight" class="luxury-input" placeholder="e.g. AI 101 / EK 512 / BA 142">
+              </div>
+
+              <div class="input-field-wrap">
+                <label class="input-label" for="modal-date">Pickup Date</label>
+                <i class="icon-calendar input-icon"></i>
+                <input type="date" id="modal-date" class="luxury-input" required>
+              </div>
+
+              <div class="input-field-wrap">
+                <label class="input-label" for="modal-time">Pickup Time</label>
+                <i class="icon-clock input-icon"></i>
+                <input type="time" id="modal-time" class="luxury-input" value="14:00" required>
+              </div>
+
+              <div class="input-field-wrap" id="modal-return-date-wrap" style="display: none;">
+                <label class="input-label" for="modal-return-date">Return Date</label>
+                <i class="icon-calendar input-icon"></i>
+                <input type="date" id="modal-return-date" class="luxury-input">
+              </div>
+
+              <div class="input-field-wrap">
+                <label class="input-label" for="modal-passengers">Guests / Passengers</label>
+                <i class="icon-users input-icon"></i>
+                <select id="modal-passengers" class="luxury-select">
+                  <option value="1">1 Guest</option>
+                  <option value="2" selected>2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="6">6+ Guests (VIP Van)</option>
+                </select>
+              </div>
+
+              <div class="input-field-wrap">
+                <label class="input-label" for="modal-luggage">Luggage Bags</label>
+                <i class="icon-briefcase input-icon"></i>
+                <select id="modal-luggage" class="luxury-select">
+                  <option value="1">1 Suitcase</option>
+                  <option value="2" selected>2 Suitcases</option>
+                  <option value="3">3 Suitcases</option>
+                  <option value="5">5+ Suitcases</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Choose Car -->
+          <div class="wizard-step-panel" id="wizard-step-2">
+            <h4 style="margin-bottom: 1.2rem; color: var(--gold-light);">Step 2: Choose Your Luxury Vehicle</h4>
+            <div class="modal-fleet-picker" id="modal-fleet-list">
+              <!-- Rendered by booking.js -->
+            </div>
+          </div>
+
+          <!-- STEP 3: Addons -->
+          <div class="wizard-step-panel" id="wizard-step-3">
+            <h4 style="margin-bottom: 1.2rem; color: var(--gold-light);">Step 3: Exclusive VIP Add-Ons</h4>
+            <div class="modal-addons-picker" id="modal-addons-list">
+              <!-- Rendered by booking.js -->
+            </div>
+          </div>
+
+          <!-- STEP 4: Passenger Info -->
+          <div class="wizard-step-panel" id="wizard-step-4">
+            <h4 style="margin-bottom: 1.2rem; color: var(--gold-light);">Step 4: Passenger & Contact Details</h4>
+            <div class="booking-form-grid">
+              <div class="input-field-wrap form-group-full">
+                <label class="input-label" for="modal-guest-name">Primary Passenger Full Name</label>
+                <i class="icon-user input-icon"></i>
+                <input type="text" id="modal-guest-name" class="luxury-input" placeholder="e.g. Lord Alexander Wright / Mr. Rajesh Sharma" required>
+              </div>
+
+              <div class="input-field-wrap">
+                <label class="input-label" for="modal-guest-phone">Contact Phone / WhatsApp</label>
+                <i class="icon-phone input-icon"></i>
+                <input type="tel" id="modal-guest-phone" class="luxury-input" placeholder="+91 91363 97629" required>
+              </div>
+
+              <div class="input-field-wrap">
+                <label class="input-label" for="modal-guest-email">Email (For Itinerary & Invoice)</label>
+                <i class="icon-flag input-icon"></i>
+                <input type="email" id="modal-guest-email" class="luxury-input" placeholder="passenger@executive.com">
+              </div>
+
+              <div class="input-field-wrap form-group-full">
+                <label class="input-label" for="modal-special-requests">Special Requests / Preferences</label>
+                <textarea id="modal-special-requests" class="luxury-input" rows="3" placeholder="e.g. Preferred music genre, AC temperature at 21°C, child booster seat, quiet cabin..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: Confirmation & Voucher -->
+          <div class="wizard-step-panel" id="wizard-step-5">
+            <!-- Rendered by booking.js -->
+          </div>
+        </div>
+
+        <!-- Sidebar Summary -->
+        <div class="modal-sidebar">
+          <div class="sidebar-summary-card">
+            <h4 style="font-size: 1.1rem; color: var(--gold-light); margin-bottom: 1rem;">Booking Overview</h4>
+            
+            <div class="receipt-row">
+              <span style="color: var(--text-muted);">Vehicle</span>
+              <strong id="summary-car-name" style="color: #FFF; font-size: 0.88rem;">Mercedes S-Class</strong>
+            </div>
+
+            <div class="receipt-row">
+              <span style="color: var(--text-muted);">Service</span>
+              <span id="summary-trip-type">ONE-WAY</span>
+            </div>
+
+            <div class="receipt-row">
+              <span style="color: var(--text-muted);">Distance</span>
+              <span id="summary-distance">25 KM (Est.)</span>
+            </div>
+
+            <div class="receipt-row">
+              <span style="color: var(--text-muted);">Subtotal</span>
+              <span id="summary-subtotal">₹5,875</span>
+            </div>
+
+            <div class="receipt-row">
+              <span style="color: var(--text-muted);">Taxes & Fees</span>
+              <span id="summary-taxes">₹293</span>
+            </div>
+
+            <div class="receipt-row discount-row" id="summary-discount-row" style="display: none;">
+              <span>Promo Discount</span>
+              <span id="summary-discount">-₹0</span>
+            </div>
+
+            <div class="receipt-row total-row" style="font-size: 1.25rem;">
+              <span>Est. Total</span>
+              <span id="summary-grand-total">₹6,168</span>
+            </div>
+          </div>
+
+          <!-- Promo Input in Modal -->
+          <div style="margin-top: auto;">
+            <label class="input-label" for="modal-promo-input">Coupon Voucher</label>
+            <div class="promo-input-group">
+              <input type="text" id="modal-promo-input" class="luxury-input" placeholder="Code..." style="padding-left: 0.75rem; text-transform: uppercase;">
+              <button type="button" id="modal-apply-promo" class="btn btn-gold-outline" style="padding: 0.6rem 0.9rem;">Apply</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer Nav -->
+      <div class="modal-footer-nav">
+        <button type="button" class="btn btn-dark" id="booking-prev-btn" style="display: none;">
+          ← Back
+        </button>
+        <button type="button" class="btn btn-gold" id="booking-next-btn" style="margin-left: auto;">
+          <span>Continue</span>
+          <i class="icon-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       12. FOOTER
+       ========================================================================== -->
+  <footer class="luxury-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="Luxury Cabs Logo" style="height: 58px;">
+          <p>
+            Luxury Cabs is the foremost provider of elite chauffeur, limousine, and luxury car rental services. Delivering regal comfort, punctuality, and bespoke hospitality worldwide.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Our Fleet</h4>
+          <ul class="footer-links">
+            <li><a href="#fleet">Mercedes-Benz S-Class</a></li>
+            <li><a href="#fleet">Rolls-Royce Ghost</a></li>
+            <li><a href="#fleet">BMW 7-Series</a></li>
+            <li><a href="#fleet">Range Rover Autobiography</a></li>
+            <li><a href="#fleet">Mercedes V-Class VIP</a></li>
+            <li><a href="#fleet">Bentley Flying Spur</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>VIP Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Airport VIP Transfers</a></li>
+            <li><a href="#services">Corporate Chauffeur</a></li>
+            <li><a href="#services">Wedding & Royal Events</a></li>
+            <li><a href="#services">Hourly Charter</a></li>
+            <li><a href="#tracking">Live Ride Tracker</a></li>
+            <li><a href="#calculator">Fare Estimator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-newsletter">
+          <h4>VIP Privileges</h4>
+          <p>Subscribe to receive complimentary upgrade vouchers, seasonal perks, and priority booking status.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); bookingEngine.showToast('Subscribed to VIP Privileges Club!', 'success');">
+            <input type="email" class="newsletter-input" placeholder="Your executive email..." required>
+            <button type="submit" class="btn btn-gold" style="padding: 0.7rem 1.1rem;">Join</button>
+          </form>
+          <div style="margin-top: 1.5rem; color: var(--gold-light); font-size: 0.9rem;">
+            <i class="icon-phone"></i> <strong>24/7 VIP Concierge:</strong> +91 91363 97629
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Luxury Cabs. All Rights Reserved. Make My Travels</p>
+        <p>Design & Develop <a href="https://hindsol.com/" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light); font-weight: 600; text-decoration: underline; transition: var(--transition-smooth);">Hindsol Mind</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Direct WhatsApp VIP Button -->
+  <a href="https://wa.me/919136397629?text=Hello%20Luxury%20Cabs,%20I%20would%20like%20to%20reserve%20a%20VIP%20Chauffeur%20ride." target="_blank" class="floating-vip-whatsapp" aria-label="WhatsApp VIP Concierge">
+    <i class="icon-whatsapp" style="font-size: 1.3rem;"></i>
+    <span>VIP WhatsApp</span>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/fleet-data.js"></script>
+  <script src="assets/js/calculator.js"></script>
+  <script src="assets/js/booking.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
