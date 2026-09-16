@@ -2,24 +2,6 @@
 
 A 100% pure **HTML5, Vanilla CSS, and JavaScript** luxury cab booking web application built for instant, zero-configuration deployment on **Vercel**, **Netlify**, or **GitHub Pages**.
 
-## 🚀 How to Deploy on Vercel
-
-### Option 1: Vercel Dashboard (Drag & Drop or GitHub)
-1. Push this folder to a GitHub repository (or zip it).
-2. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
-3. Import your GitHub repository or drag and drop this project folder.
-4. **Framework Preset**: Select **"Other"** (or leave as Default).
-5. **Root Directory**: `./` (Default).
-6. Click **"Deploy"**! Your site will be live instantly with a free `.vercel.app` URL and SSL certificate.
-
-### Option 2: Vercel CLI
-```bash
-npm i -g vercel
-vercel
-```
-
----
-
 ## 📁 Project Structure
 
 ```
